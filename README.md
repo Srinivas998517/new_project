@@ -27,7 +27,6 @@ This project uses [Poetry](https://python-poetry.org/) for dependency management
     git clone [https://github.com/your-username/research-paper-fetcher.git](https://github.com/your-username/research-paper-fetcher.git)
     cd research-paper-fetcher
     ```
-    *(Replace `your-username` with your actual GitHub username and `research-paper-fetcher` with your repository name.)*
 
 2.  **Install dependencies using Poetry:**
     ```bash
