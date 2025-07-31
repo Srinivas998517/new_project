@@ -5,20 +5,18 @@ import csv
 import sys
 import ssl # Import the ssl module
 
-# Always tell NCBI who you are (required for Entrez)
-Entrez.email = "rahul122@gmail.com" # Replace with your actual email
+
+Entrez.email = "srinu@gmail.com" # Replace with your actual email
 
 # --- ADD THIS SECTION FOR TEMPORARY DEBUGGING ---
 # Create an unverified SSL context
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
-    # Legacy Python that doesn't have _create_unverified_context
     pass
 else:
     # Handle target environment that doesn't have certificate verification
     ssl._create_default_https_context = _create_unverified_https_context
-# --- END ADDITION FOR TEMPORARY DEBUGGING ---
 
 def fetch_pubmed_ids(query: str, retmax: int = 10) -> list[str]:
     """
@@ -34,7 +32,6 @@ def fetch_pubmed_ids(query: str, retmax: int = 10) -> list[str]:
         print(f"Error fetching PubMed IDs: {e}")
         return []
 
-# ... (rest of your pubmed_module.py code remains the same) ...
 
 def fetch_paper_details(pubmed_ids: list[str]) -> list[dict]:
     """
@@ -106,7 +103,6 @@ def fetch_paper_details(pubmed_ids: list[str]) -> list[dict]:
 
     return papers_data
 
-# --- ALL FUNCTIONS MUST BE DEFINED BEFORE THE `if __name__ == "__main__":` block ---
 
 def is_non_academic_affiliation(affiliation: str) -> bool:
     """
@@ -115,7 +111,6 @@ def is_non_academic_affiliation(affiliation: str) -> bool:
     """
     affiliation_lower = affiliation.lower()
 
-    # Keywords indicating pharmaceutical/biotech companies
     company_keywords = [
         "pharmaceutical", "pharma", "biotech", "biotechnology", "inc.", "llc",
         "corp", "corporation", "company", "gmbh", "ag", "laboratories",
@@ -126,7 +121,6 @@ def is_non_academic_affiliation(affiliation: str) -> bool:
         "sanofi", "eli lilly", "bayer", "glaxosmithkline", "abbvie"
     ]
 
-    # Keywords typically indicating academic/hospital/government institutions
     academic_keywords = [
         "university", "college", "institute", "hospital", "clinic", "school",
         "department", "center for disease control", "cdc", "nih", "fda",
@@ -197,7 +191,6 @@ def write_results_to_csv(data: list[dict], filename: str):
         print("No data to write.")
         return
 
-    # Define the column headers as specified in the problem
     fieldnames = [
         "PubmedID",
         "Title",
@@ -224,8 +217,6 @@ def print_results_to_console(data: list[dict]):
         print("No papers found with non-academic affiliations.")
         return
 
-    # Define a formatted string for console output
-    # This is a simpler representation than CSV for console
     for paper in data:
         print(f"PubmedID: {paper.get('PubmedID', 'N/A')}")
         print(f"Title: {paper.get('Title', 'N/A')}")
@@ -235,7 +226,6 @@ def print_results_to_console(data: list[dict]):
         print(f"Corresponding Author Email: {paper.get('Corresponding Author Email', 'N/A')}")
         print("-" * 50)
 
-# For testing this module directly (optional)
 if __name__ == "__main__":
     test_query = "CRISPR gene editing"
     print(f"Fetching IDs for query: '{test_query}'")
