@@ -8,8 +8,6 @@ import ssl # Import the ssl module
 
 Entrez.email = "srinu@gmail.com" # Replace with your actual email
 
-# --- ADD THIS SECTION FOR TEMPORARY DEBUGGING ---
-# Create an unverified SSL context
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
