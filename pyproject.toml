@@ -3,7 +3,7 @@ name = "new-project"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Your Name",email = "rahul11@gmail.com"}
+    {name = "Your Name",email = "thotasinivasmec23@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"
@@ -19,7 +19,6 @@ dependencies = [
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-# --- ADD THIS SECTION ---
 [tool.poetry]
 packages = [
     { include = "new_project" } # This tells Poetry to include the 'new_project' directory as a package
