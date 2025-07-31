@@ -1,0 +1,30 @@
+[project]
+name = "new-project"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "rahul11@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests (>=2.32.4,<3.0.0)",
+    "biopython (>=1.85,<2.0)"
+    # Removed "typer" and "pandas" as they are not currently used in the provided code.
+    # We are using 'argparse' for CLI and Python's built-in 'csv' module for CSV output.
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# --- ADD THIS SECTION ---
+[tool.poetry]
+packages = [
+    { include = "new_project" } # This tells Poetry to include the 'new_project' directory as a package
+]
+# --- END ADDITION ---
+
+[tool.poetry.scripts]
+get-papers-list = "new_project.cli:main"
