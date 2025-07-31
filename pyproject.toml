@@ -10,8 +10,6 @@ requires-python = ">=3.13"
 dependencies = [
     "requests (>=2.32.4,<3.0.0)",
     "biopython (>=1.85,<2.0)"
-    # Removed "typer" and "pandas" as they are not currently used in the provided code.
-    # We are using 'argparse' for CLI and Python's built-in 'csv' module for CSV output.
 ]
 
 
